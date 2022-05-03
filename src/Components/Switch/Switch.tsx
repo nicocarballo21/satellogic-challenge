@@ -3,12 +3,18 @@ import {
   StyledCheckBox,
   StyledCheckBoxLabel,
 } from "./styles";
+import { SwitchProps } from ".";
 
-const Switch = () => {
+const Switch = ({ switchState, onChange }: SwitchProps) => {
   return (
     <>
       <StyledCheckBoxWrapper>
-        <StyledCheckBox id="checkbox" type="checkbox" />
+        <StyledCheckBox
+          checked={switchState}
+          onChange={onChange}
+          id="checkbox"
+          type="checkbox"
+        />
         <StyledCheckBoxLabel htmlFor="checkbox" />
       </StyledCheckBoxWrapper>
     </>
