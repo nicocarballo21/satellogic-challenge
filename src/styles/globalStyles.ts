@@ -10,5 +10,4 @@ export const GlobalStyle = createGlobalStyle`
     background-color: lightgray;
     
   }
- 
 `;

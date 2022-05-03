@@ -9,12 +9,11 @@ import {
 import { Links } from ".";
 import dark_mode_icon from "../../assets/dark_mode_icon.png";
 import light_mode_icon from "../../assets/light_mode_icon.png";
-import { Switch } from "../../Components/Switch";
+import { Switch } from "../../components/Switch";
 import { ChangeEvent, useState } from "react";
 
 const Header = () => {
   const [isSwitchOn, setIsSwitchOn] = useState(false);
-  console.log(isSwitchOn);
 
   const handleSwitchState = (e: ChangeEvent<HTMLInputElement>) =>
     setIsSwitchOn(e.target.checked);
@@ -41,6 +40,7 @@ const Header = () => {
       id: 4,
     },
   ];
+
   return (
     <HeaderContainer>
       <HeaderTitle>Test</HeaderTitle>
@@ -50,8 +50,8 @@ const Header = () => {
         ))}
       </HeaderLinks>
       <HeaderThemeSection>
-        <Icon src={light_mode_icon} />
-        Light Mode
+        <Icon src={isSwitchOn ? dark_mode_icon : light_mode_icon} />
+        {isSwitchOn ? "Dark Mode" : "Light Mode"}
         <Switch switchState={isSwitchOn} onChange={handleSwitchState} />
       </HeaderThemeSection>
     </HeaderContainer>
