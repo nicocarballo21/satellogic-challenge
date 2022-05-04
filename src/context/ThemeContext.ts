@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export interface ThemeDetails {
   themeName: Themes;
@@ -7,20 +7,20 @@ export interface ThemeDetails {
 }
 
 export enum Themes {
-  "DARK" = "dark",
-  "LIGHT" = "light",
+  'DARK' = 'dark',
+  'LIGHT' = 'light',
 }
 
 export const lightTheme: ThemeDetails = {
   themeName: Themes.LIGHT,
-  bg: "#ffffff",
-  color: "#1a1e22",
+  bg: '#ffffff',
+  color: '#1a1e22',
 };
 
 export const darkTheme: ThemeDetails = {
   themeName: Themes.DARK,
-  bg: "#1a1e22",
-  color: "#ffffff",
+  bg: '#1a1e22',
+  color: '#ffffff',
 };
 
 const ThemeContext = React.createContext({

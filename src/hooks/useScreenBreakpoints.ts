@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const useScreenBreakpoints = () => {
   const [breakpoints, setBreakpoints] = useState({
@@ -17,8 +17,8 @@ const useScreenBreakpoints = () => {
       setBreakpoints(sizes);
     };
 
-    window.addEventListener("resize", getSizes);
-    return () => window.removeEventListener("resize", getSizes);
+    window.addEventListener('resize', getSizes);
+    return () => window.removeEventListener('resize', getSizes);
   }, []);
 
   return breakpoints;
