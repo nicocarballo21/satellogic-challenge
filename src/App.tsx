@@ -1,12 +1,15 @@
 import React from "react";
 import { GlobalStyle } from "./styles/globalStyles";
 import Home from "./Views/Home";
+import ThemeProvider from "./context/ThemeProvider";
 
 function App() {
   return (
     <>
-      <Home />
-      <GlobalStyle />
+      <ThemeProvider>
+        <Home />
+        <GlobalStyle />
+      </ThemeProvider>
     </>
   );
 }
