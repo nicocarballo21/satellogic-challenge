@@ -1,7 +1,17 @@
 import React from "react";
+import { GlobalStyle } from "./styles/globalStyles";
+import Home from "./Views/Home";
+import ThemeProvider from "./context/ThemeProvider";
 
-const App = () => {
-  return <div className="App"></div>;
-};
+function App() {
+  return (
+    <>
+      <ThemeProvider>
+        <Home />
+        <GlobalStyle />
+      </ThemeProvider>
+    </>
+  );
+}
 
 export default App;
