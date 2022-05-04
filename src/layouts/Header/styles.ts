@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-export const HeaderContainer = styled.div<{ bgColor: string }>`
+export const HeaderContainer = styled.header<{ bgColor: string }>`
   height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: ${({ bgColor }) => bgColor};
   padding: 20px 30px;
+  transition: all 0.6s linear;
 `;
 
 export const HeaderTitle = styled.h1<{ color: string }>`
@@ -22,8 +23,10 @@ export const HeaderLinks = styled.div`
 
 export const Link = styled.a<{ color: string }>`
   margin: 0 10px;
+  height: 50%;
   color: ${({ color }) => color};
   cursor: pointer;
+  transition: 0.4s;
 
   &:hover:after {
     content: "";
@@ -32,6 +35,13 @@ export const Link = styled.a<{ color: string }>`
     height: 5px;
     border-bottom: 1px solid;
     margin: 0 auto;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 13px 7px lightsteelblue;
+    font-size: 20px;
+    border-radius: 8px;
+    padding: 6px;
   }
 `;
 
@@ -54,13 +64,13 @@ export const ThemeStateText = styled.p<{ color: string }>`
   color: ${({ color }) => color};
 `;
 
-export const LinksBox = styled.div<{ bgColor: string }>`
+export const DropdownLinksBox = styled.div<{ bgColor: string }>`
   display: flex;
-  transition: all 0.5s linear;
   flex-direction: column;
   justify-content: center;
   background-color: ${({ bgColor }) => bgColor};
   align-items: center;
+  transition: all 0.6s linear;
 
   & > * {
     margin-bottom: 30px;

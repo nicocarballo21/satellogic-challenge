@@ -12,7 +12,7 @@ import {
   Link,
   Icon,
   ThemeStateText,
-  LinksBox,
+  DropdownLinksBox,
 } from "./styles";
 import useScreenBreakpoints from "../../hooks/useScreenBreakpoints";
 import { Button } from "../../components/Button";
@@ -94,14 +94,14 @@ const Header = () => {
         </HeaderThemeSection>
       </HeaderContainer>
 
-      {dropdownLinks ? (
-        <LinksBox bgColor={theme.bg}>
+      {dropdownLinks && breakpoint.md ? (
+        <DropdownLinksBox bgColor={theme.bg}>
           {links.map((link) => (
             <Link key={link.id} color={theme.color}>
               {link.title}
             </Link>
           ))}
-        </LinksBox>
+        </DropdownLinksBox>
       ) : null}
     </>
   );
