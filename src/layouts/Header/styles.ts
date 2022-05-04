@@ -22,15 +22,17 @@ export const HeaderLinks = styled.div`
   width: 60%;
 `;
 
-export const HeaderLink = styled.a<{ isSelected: boolean; color: string }>`
+export const Link = styled.a<{ color: string }>`
   margin: 0 10px;
   color: ${({ color }) => color};
+  height: 20px;
   cursor: pointer;
 
-  &:after {
+  &:hover:after {
     content: "";
     display: block;
     width: 15px;
+    height: 5px;
     border-bottom: 1px solid;
     margin: 0 auto;
   }
@@ -46,11 +48,9 @@ export const HeaderThemeSection = styled.div`
   }
 `;
 
-export const Icon = styled.img<{ color: string }>`
+export const Icon = styled.img`
   width: 24px;
   height: 24px;
-  fill: red;
-  color: red;
 `;
 
 export const ThemeStateText = styled.p<{ color: string }>`

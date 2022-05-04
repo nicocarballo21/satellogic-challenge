@@ -1,28 +1,29 @@
+import { useContext, useState } from "react";
+import ThemeContext from "../../context/ThemeContext";
+import { LinkData } from ".";
+import dark_mode_icon from "../../assets/dark_mode_icon.png";
+import light_mode_icon from "../../assets/light_mode_icon.svg";
+import Switch from "react-switch";
 import {
   HeaderContainer,
   HeaderLinks,
   HeaderThemeSection,
   HeaderTitle,
-  HeaderLink,
+  Link,
   Icon,
   ThemeStateText,
 } from "./styles";
-import { Links } from ".";
-import dark_mode_icon from "../../assets/dark_mode_icon.png";
-import light_mode_icon from "../../assets/light_mode_icon.svg";
-import { Switch } from "../../components/Switch";
-import { ChangeEvent, useContext, useState } from "react";
-import ThemeContext from "../../context/ThemeContext";
-const Header = () => {
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
-  const { theme, toggleTheme, isDarkTheme } = useContext(ThemeContext);
 
-  const handleThemeSwitch = (e: ChangeEvent<HTMLInputElement>) => {
-    setIsSwitchOn(e.target.checked);
+const Header = () => {
+  const { theme, toggleTheme, isDarkTheme } = useContext(ThemeContext);
+  const [isSwitchOn, setIsSwitchOn] = useState(isDarkTheme ? true : false);
+
+  const handleThemeSwitch = (switchState: boolean) => {
+    setIsSwitchOn(switchState);
     toggleTheme();
   };
 
-  const links: Links[] = [
+  const links: LinkData[] = [
     {
       title: "Link 1",
       id: 0,
@@ -45,31 +46,33 @@ const Header = () => {
     },
   ];
 
-  console.log(theme.color);
-
   return (
     <HeaderContainer bgColor={theme.bg}>
       <HeaderTitle color={theme.color}>Test</HeaderTitle>
       <HeaderLinks>
         {links.map((link) => (
-          <HeaderLink
-            key={link.id}
-            isSelected={link.id === 1}
-            color={theme.color}
-          >
+          <Link key={link.id} color={theme.color}>
             {link.title}
-          </HeaderLink>
+          </Link>
         ))}
       </HeaderLinks>
       <HeaderThemeSection>
-        <Icon
-          src={isDarkTheme ? dark_mode_icon : light_mode_icon}
-          color={theme.color}
-        />
+        <Icon src={isDarkTheme ? dark_mode_icon : light_mode_icon} />
         <ThemeStateText color={theme.color}>
           {isDarkTheme ? "Dark Mode" : "Light Mode"}
         </ThemeStateText>
-        <Switch switchState={isSwitchOn} onChange={handleThemeSwitch} />
+
+        <Switch
+          checked={isSwitchOn}
+          onChange={handleThemeSwitch}
+          checkedIcon={false}
+          onColor="#83a9fe"
+          onHandleColor="#1168eb"
+          handleDiameter={22}
+          uncheckedIcon={false}
+          height={15}
+          width={35}
+        />
       </HeaderThemeSection>
     </HeaderContainer>
   );

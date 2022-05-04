@@ -1,4 +1,4 @@
-export interface Links {
+export interface LinkData {
   title: string;
   id: number;
 }

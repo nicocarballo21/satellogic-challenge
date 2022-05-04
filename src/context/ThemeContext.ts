@@ -8,19 +8,19 @@ export interface ThemeDetails {
 
 export enum Themes {
   "DARK" = "dark",
-  "WHITE" = "white",
+  "LIGHT" = "light",
 }
 
-export const whiteTheme: ThemeDetails = {
-  themeName: Themes.WHITE,
-  bg: "white",
-  color: "black",
+export const lightTheme: ThemeDetails = {
+  themeName: Themes.LIGHT,
+  bg: "#ffffff",
+  color: "#1a1e22",
 };
 
 export const darkTheme: ThemeDetails = {
   themeName: Themes.DARK,
-  bg: "black",
-  color: "white",
+  bg: "#1a1e22",
+  color: "#ffffff",
 };
 
 const ThemeContext = React.createContext({

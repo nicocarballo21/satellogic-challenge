@@ -2,25 +2,24 @@ import React, { useEffect, useState } from "react";
 import ThemeContext, {
   darkTheme,
   ThemeDetails,
-  whiteTheme,
+  lightTheme,
   Themes,
 } from "./ThemeContext";
 import ThemeProviderProps from "./ThemeProvider.d";
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const isDarkTheme = window.localStorage.getItem("darkTheme") === Themes.DARK;
-  const [theme, setTheme] = useState<ThemeDetails>(whiteTheme);
+  const [theme, setTheme] = useState<ThemeDetails>(lightTheme);
 
   useEffect(() => {
     if (isDarkTheme) return setTheme(darkTheme);
-
-    return setTheme(whiteTheme);
+    return setTheme(lightTheme);
   }, [isDarkTheme]);
 
   const toggleTheme = () => {
-    const theme = isDarkTheme ? whiteTheme : darkTheme;
-    setTheme(theme);
-    window.localStorage.setItem("darkTheme", theme.themeName);
+    const themeToSet = isDarkTheme ? lightTheme : darkTheme;
+    setTheme(themeToSet);
+    window.localStorage.setItem("darkTheme", themeToSet.themeName);
   };
 
   const value = { theme, toggleTheme, isDarkTheme };
