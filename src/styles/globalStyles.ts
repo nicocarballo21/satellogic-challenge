@@ -5,9 +5,11 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: lightgray;
-    
+  }
+
+  body {
+    background-color: lightgray; 
+    height: 100vh;
+    width: 100vw;
   }
 `;

@@ -12,11 +12,16 @@ import {
   Link,
   Icon,
   ThemeStateText,
+  LinksBox,
 } from "./styles";
+import useScreenBreakpoints from "../../hooks/useScreenBreakpoints";
+import { Button } from "../../components/Button";
 
 const Header = () => {
   const { theme, toggleTheme, isDarkTheme } = useContext(ThemeContext);
   const [isSwitchOn, setIsSwitchOn] = useState(isDarkTheme ? true : false);
+  const breakpoint = useScreenBreakpoints();
+  const [displayLinks, setDisplayLinks] = useState(false);
 
   const handleThemeSwitch = (switchState: boolean) => {
     setIsSwitchOn(switchState);
@@ -46,35 +51,58 @@ const Header = () => {
     },
   ];
 
-  return (
-    <HeaderContainer bgColor={theme.bg}>
-      <HeaderTitle color={theme.color}>Test</HeaderTitle>
-      <HeaderLinks>
+  const renderLinks = () => {
+    if (breakpoint.md) {
+      return <Button onClick={() => setDisplayLinks(!displayLinks)} />;
+    }
+    return (
+      <>
         {links.map((link) => (
           <Link key={link.id} color={theme.color}>
             {link.title}
           </Link>
         ))}
-      </HeaderLinks>
-      <HeaderThemeSection>
-        <Icon src={isDarkTheme ? dark_mode_icon : light_mode_icon} />
-        <ThemeStateText color={theme.color}>
-          {isDarkTheme ? "Dark Mode" : "Light Mode"}
-        </ThemeStateText>
+      </>
+    );
+  };
 
-        <Switch
-          checked={isSwitchOn}
-          onChange={handleThemeSwitch}
-          checkedIcon={false}
-          onColor="#83a9fe"
-          onHandleColor="#1168eb"
-          handleDiameter={22}
-          uncheckedIcon={false}
-          height={15}
-          width={35}
-        />
-      </HeaderThemeSection>
-    </HeaderContainer>
+  return (
+    <>
+      <HeaderContainer bgColor={theme.bg}>
+        <HeaderTitle color={theme.color}>Test</HeaderTitle>
+        <HeaderLinks>{renderLinks()}</HeaderLinks>
+        <HeaderThemeSection>
+          <Icon src={isDarkTheme ? dark_mode_icon : light_mode_icon} />
+          {!breakpoint.sm ? (
+            <ThemeStateText color={theme.color}>
+              {isDarkTheme ? "Dark Mode" : "Light Mode"}
+            </ThemeStateText>
+          ) : null}
+
+          <Switch
+            checked={isSwitchOn}
+            onChange={handleThemeSwitch}
+            checkedIcon={false}
+            onColor="#83a9fe"
+            onHandleColor="#1168eb"
+            handleDiameter={22}
+            uncheckedIcon={false}
+            height={15}
+            width={35}
+          />
+        </HeaderThemeSection>
+      </HeaderContainer>
+
+      {displayLinks ? (
+        <LinksBox>
+          {links.map((link) => (
+            <Link key={link.id} color={theme.color}>
+              {link.title}
+            </Link>
+          ))}
+        </LinksBox>
+      ) : null}
+    </>
   );
 };
 
