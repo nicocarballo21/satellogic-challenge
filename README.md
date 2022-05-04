@@ -1,5 +1,9 @@
 # Satellogic frontend coding challenge
 
+##
+## Deployed project: https://satellogic-challenge-bzidaiar4-nicocarballo21.vercel.app/
+##
+
 The idea is to build a simple header component but with a twist. You will find all the information bellow.
 
 * [Acceptance Criteria](#Acceptance-Criteria)
