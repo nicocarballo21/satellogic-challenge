@@ -58,7 +58,7 @@ const Header = () => {
     return (
       <>
         {links.map((link) => (
-          <Link key={link.id} color={theme.color}>
+          <Link tabIndex={1} key={link.id} color={theme.color}>
             {link.title}
           </Link>
         ))}
@@ -72,7 +72,10 @@ const Header = () => {
         <HeaderTitle color={theme.color}>Test</HeaderTitle>
         <HeaderLinks>{renderLinks()}</HeaderLinks>
         <HeaderThemeSection>
-          <Icon src={isDarkTheme ? dark_mode_icon : light_mode_icon} />
+          <Icon
+            src={isDarkTheme ? dark_mode_icon : light_mode_icon}
+            alt={isDarkTheme ? "Dark mode icon" : "Light mode icon"}
+          />
           {!breakpoint.sm ? (
             <ThemeStateText color={theme.color}>
               {isDarkTheme ? "Dark Mode" : "Light Mode"}
