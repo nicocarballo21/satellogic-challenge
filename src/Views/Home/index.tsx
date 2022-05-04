@@ -1,5 +1,5 @@
-import { Header } from "../../layouts";
-import { HomeBody } from "./styles";
+import { Header } from '../../layouts';
+import { HomeBody } from './styles';
 
 const Home = () => {
   return (

@@ -1,9 +1,9 @@
-import { StyledButton } from "./styles";
-import { ButtonProps } from ".";
-import hamburger_icon_dark from "../../assets/hamburguer_icon_dark.png";
-import hamburger_icon_light from "../../assets/hamburguer_icon_light.png";
-import ThemeContext from "../../context/ThemeContext";
-import { useContext } from "react";
+import { StyledButton } from './styles';
+import { ButtonProps } from '.';
+import hamburger_icon_dark from '../../assets/hamburguer_icon_dark.png';
+import hamburger_icon_light from '../../assets/hamburguer_icon_light.png';
+import ThemeContext from '../../context/ThemeContext';
+import { useContext } from 'react';
 
 const Button = ({ onClick }: ButtonProps) => {
   const { isDarkTheme } = useContext(ThemeContext);

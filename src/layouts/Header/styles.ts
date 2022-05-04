@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const HeaderContainer = styled.header<{ bgColor: string }>`
   height: 40px;
@@ -29,7 +29,7 @@ export const Link = styled.a<{ color: string }>`
   transition: 0.4s;
 
   &:hover:after {
-    content: "";
+    content: '';
     display: block;
     width: 15px;
     height: 5px;

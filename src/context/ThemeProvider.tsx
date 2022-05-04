@@ -1,18 +1,18 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from 'react';
 import ThemeContext, {
   darkTheme,
   ThemeDetails,
   lightTheme,
   Themes,
-} from "./ThemeContext";
-import ThemeProviderProps from "./ThemeProvider.d";
+} from './ThemeContext';
+import ThemeProviderProps from './ThemeProvider.d';
 
 const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const isDarkThemeFromSystem = window.matchMedia(
-    "(prefers-color-scheme: dark)"
+    '(prefers-color-scheme: dark)',
   ).matches;
 
-  const themeFromLocalStorage = window.localStorage.getItem("darkTheme");
+  const themeFromLocalStorage = window.localStorage.getItem('darkTheme');
 
   const getThemeConfig = useCallback(() => {
     if (!themeFromLocalStorage) {
@@ -34,7 +34,7 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const toggleTheme = () => {
     const themeToSet = isDarkTheme ? lightTheme : darkTheme;
     setTheme(themeToSet);
-    window.localStorage.setItem("darkTheme", themeToSet.themeName);
+    window.localStorage.setItem('darkTheme', themeToSet.themeName);
   };
 
   const isDarkTheme = theme.themeName === Themes.DARK;
