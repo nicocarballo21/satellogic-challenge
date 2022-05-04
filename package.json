@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.25",
+    "eslint-plugin-testing-library": "^5.3.1",
     "prettier": "2.6.2"
   },
   "resolutions": {
