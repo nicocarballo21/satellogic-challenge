@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 const useScreenBreakpoints = () => {
   const [breakpoints, setBreakpoints] = useState({
-    lg: false,
-    md: false,
-    sm: false,
+    lg: window.innerWidth >= 1024,
+    md: window.innerWidth <= 660,
+    sm: window.innerWidth <= 400,
   });
 
   useEffect(() => {

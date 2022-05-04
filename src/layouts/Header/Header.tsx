@@ -21,7 +21,7 @@ const Header = () => {
   const { theme, toggleTheme, isDarkTheme } = useContext(ThemeContext);
   const [isSwitchOn, setIsSwitchOn] = useState(isDarkTheme ? true : false);
   const breakpoint = useScreenBreakpoints();
-  const [displayLinks, setDisplayLinks] = useState(false);
+  const [dropdownLinks, setDropdownLinks] = useState(false);
 
   const handleThemeSwitch = (switchState: boolean) => {
     setIsSwitchOn(switchState);
@@ -53,7 +53,7 @@ const Header = () => {
 
   const renderLinks = () => {
     if (breakpoint.md) {
-      return <Button onClick={() => setDisplayLinks(!displayLinks)} />;
+      return <Button onClick={() => setDropdownLinks(!dropdownLinks)} />;
     }
     return (
       <>
@@ -83,6 +83,7 @@ const Header = () => {
             checked={isSwitchOn}
             onChange={handleThemeSwitch}
             checkedIcon={false}
+            offHandleColor="#83a9fe"
             onColor="#83a9fe"
             onHandleColor="#1168eb"
             handleDiameter={22}
@@ -93,8 +94,8 @@ const Header = () => {
         </HeaderThemeSection>
       </HeaderContainer>
 
-      {displayLinks ? (
-        <LinksBox>
+      {dropdownLinks ? (
+        <LinksBox bgColor={theme.bg}>
           {links.map((link) => (
             <Link key={link.id} color={theme.color}>
               {link.title}

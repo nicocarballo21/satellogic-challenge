@@ -39,8 +39,9 @@ export const HeaderThemeSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;
+
   & > * {
-    margin: 0 10px;
+    margin: 0 0.5rem;
   }
 `;
 
@@ -53,12 +54,12 @@ export const ThemeStateText = styled.p<{ color: string }>`
   color: ${({ color }) => color};
 `;
 
-export const LinksBox = styled.div`
+export const LinksBox = styled.div<{ bgColor: string }>`
   display: flex;
-  transition: all 3s linear;
+  transition: all 0.5s linear;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffff;
+  background-color: ${({ bgColor }) => bgColor};
   align-items: center;
 
   & > * {
